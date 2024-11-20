@@ -302,7 +302,7 @@ where $\delta_t \doteq R_{t+1} + \gamma \bar{V}_t(S_{t+1}) - Q(S_t, A_t)$ and $\
     &= R_{t+1} + \gamma \bar{V}(S_{t+1}) + \gamma \pi(A_{t+1} \mid S_{t+1}) G_{t+1:t+n} 
     - \gamma \pi(A_{t+1} \mid S_{t+1}) Q(S_{t+1}, A_{t+1}) \\
     &= \delta_t + Q(S_t, A_t)  + \gamma \pi(A_{t+1} \mid S_{t+1}) \left(G_{t+1:t+n} - Q(S_{t+1}, A_{t+1}) \right) \\
-    &= \delta_t + Q(S_t, A_t)  + \gamma \pi(A_{t+1} \mid S_{t+1}) \left(\delta_{t+1}  + \gamma \pi(A_{t+2} \mid S_{t+2}) \left(G_{t+2:t+n} - Q(S_{t+1}, A_{t+1}) \right) \right)\\
+    &= \delta_t + Q(S_t, A_t)  + \gamma \pi(A_{t+1} \mid S_{t+1}) \left(\delta_{t+1}  + \gamma \pi(A_{t+2} \mid S_{t+2}) \left(G_{t+2:t+n} - Q(S_{t+2}, A_{t+2}) \right) \right)\\
     &\cdots \\
     &= Q(S_t, A_t) + \sum_{k=t}^{\min(t+n-1, T-1)} \delta_k \prod_{i=t+1}^k \gamma \pi(A_i \mid S_i)
 \end{align*}
