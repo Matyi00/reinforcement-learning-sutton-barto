@@ -282,3 +282,35 @@ See the notebook.
     \captionsetup{labelformat=empty}
     \caption{Mean of the MSE after 100 episodes, averaged over 100 runs.}
 \end{figure}
+
+\subsection*{Exercise 7.11}
+Show that if the approximate action values are unchanging, then the tree-backup return (7.16)
+ can be written as a sum of expectation-based TD errors:
+
+\[
+G_{t:t+n} = Q(S_t, A_t) + \sum_{k=t}^{\min(t+n-1, T-1)} \delta_k \prod_{i=t+1}^k \gamma \pi(A_i \mid S_i),
+\]
+
+where $\delta_t \doteq R_{t+1} + \gamma \bar{V}_t(S_{t+1}) - Q(S_t, A_t)$ and $\bar{V}_t$ is given by (7.8).
+
+\subsubsection*{Solution:}
+
+
+\begin{align*}
+    &G_{t:t+n} = R_{t+1} + \gamma \sum_{a \neq A_{t+1}} \pi(a \mid S_{t+1}) Q_(S_{t+1}, a) 
+    + \gamma \pi(A_{t+1} \mid S_{t+1}) G_{t+1:t+n} \\
+    &= R_{t+1} + \gamma \bar{V}(S_{t+1}) + \gamma \pi(A_{t+1} \mid S_{t+1}) G_{t+1:t+n} 
+    - \gamma \pi(A_{t+1} \mid S_{t+1}) Q(S_{t+1}, A_{t+1}) \\
+    &= \delta_t + Q(S_t, A_t)  + \gamma \pi(A_{t+1} \mid S_{t+1}) \left(G_{t+1:t+n} - Q(S_{t+1}, A_{t+1}) \right) \\
+    &= \delta_t + Q(S_t, A_t)  + \gamma \pi(A_{t+1} \mid S_{t+1}) \left(\delta_{t+1}  + \gamma \pi(A_{t+2} \mid S_{t+2}) \left(G_{t+2:t+n} - Q(S_{t+1}, A_{t+1}) \right) \right)\\
+    &\cdots \\
+    &= Q(S_t, A_t) + \sum_{k=t}^{\min(t+n-1, T-1)} \delta_k \prod_{i=t+1}^k \gamma \pi(A_i \mid S_i)
+\end{align*}
+%\begin{align*}
+%    G_{t:t+n} &= R_{t+1} + \gamma \bar{V}_t(S_{t+1}) \\
+%    &+ \gamma \pi(A_{t+1} | S_{t+1}) \left[ R_{t+2} + \gamma \bar{V}_t(S_{t+2}) \right] \\
+%    &+ \gamma \pi(A_{t+1} | S_{t+1}) \gamma \pi(A_{t+2} | S_{t+2}) \left[ R_{t+3} + \gamma \bar{V}_t(S_{t+3}) \right] \\
+%    &\cdots \\
+%    &+ \gamma \pi(A_{t+1} | S_{t+1}) \gamma \pi(A_{t+2} | S_{t+2}) \cdots \gamma \pi(A_{t+n-1} | S_{t+n-1}) \left[ R_{t+n} + \gamma \bar{V}_t(S_{t+n}) \right] \\
+%    &= Q(S_t, A_t) + \sum_{k=t}^{\min(t+n-1, T-1)} \delta_k \prod_{i=t+1}^k \gamma \pi(A_i \mid S_i)
+%\end{align*}
