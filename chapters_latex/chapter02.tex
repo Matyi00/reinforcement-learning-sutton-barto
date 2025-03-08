@@ -14,7 +14,7 @@ Consider a $k$-armed bandit problem with $k = 4$ actions,
 denoted 1, 2, 3, and 4. Consider applying to this problem a bandit algorithm using
 $\varepsilon$-greedy action selection, sample-average action-value estimates, and initial estimates
 of $Q_1(a) = 0$, for all $a$. Suppose the initial sequence of actions and rewards is $A_1 = 1$,
-$R_1 = 1$, $A_2 = 2$, $R_2 = 1$, $A_3 = 2$, $R_3 = 2$, $A_4 = 2$, $R_4 = 2$, $A_5 = 3$, $R_5 = 0$. On some
+$R_1 = 1$, $A_2 = 2$, $R_2 = 1$, $A_3 = 2$, $R_3 = -2$, $A_4 = 2$, $R_4 = 2$, $A_5 = 3$, $R_5 = 0$. On some
 of these time steps the $\varepsilon$ case may have occurred, causing an action to be selected at
 random. On which time steps did this definitely occur? On which time steps could this
 possibly have occurred?\\
@@ -24,16 +24,16 @@ possibly have occurred?\\
 \begin{center}
     \begin{tabular}{|c|c|c|c|c|c|c|}
     \hline
-        $t=$  & 0 & 1 & 2 & 3  & 4   & 5   \\ \hline 
-    $Q_t(1)$ & 0  & \textbf{1}  & 1  & 1   & 1    & 1    \\ 
-    $Q_t(2)$ & 0  & 0  & \textbf{1}  & \textbf{1.5} & \textbf{1.67} & 1.67 \\ 
-    $Q_t(3)$ & 0  & 0  & 0  & 0   & 0    & \textbf{0}    \\ 
+        $t$  & 0 & 1 & 2 & 3  & 4   & 5   \\ \hline 
+    $Q_t(1)$ & \textbf{0}  & 1  & 1  & 1   & 1    & 1    \\ 
+    $Q_t(2)$ & 0  & \textbf{0}  & \textbf{1}  & \textbf{-0.5} & 0.33 & 0.33 \\ 
+    $Q_t(3)$ & 0  & 0  & 0  & 0   & \textbf{0}    & 0    \\ 
     $Q_t(4)$ & 0  & 0  & 0  & 0   & 0    & 0    \\ \hline
     \end{tabular}
 \end{center}
 
 \begin{itemize}
-    \item $\varepsilon$ case definitely occured at $t \in \{2,5\}$
+    \item $\varepsilon$ case definitely occured at $t \in \{2,4,5\}$
     \item It may have occured at any other time, too, just by chance the agent may have choosen the greedy step
 \end{itemize} 
 
@@ -43,7 +43,7 @@ the long run in terms of cumulative reward and probability of selecting the best
 How much better will it be? Express your answer quantitatively.\\
 
 \textbf{Solution:}\\
-As $t \to \infty$ we have $Q_t(a) \to q_*(a)$ for all $a$. The agent with $\varepsilon=0.1$ will choose the correct action only $90\%$ of the time, while the agent with $\varepsilon=0.01$ will choose it $99\%$ of the time.\\
+As $t \to \infty$ we have $Q_t(a) \to q_*(a)$ for all $a$. The agent with $\varepsilon=0.1$ will choose the correct action only $91\%$ of the time, while the agent with $\varepsilon=0.01$ will choose it $99.1\%$ of the time.\\
 
 \textbf{Exercise 2.4} \\
 If the step-size parameters, $a_n$, are not constant, then the estimate $Q_n$ is

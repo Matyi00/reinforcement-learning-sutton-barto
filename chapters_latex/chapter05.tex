@@ -19,7 +19,7 @@ Suppose every-visit MC was used instead of first-visit MC on the blackjack
 task. Would you expect the results to be very different? Why or why not?
 
 \subsubsection*{Solution:}
-It would be similar, as in an episode the probability of visiting the same state twice is very low, so the end results would be almost identical. One such rare case is having two aces, then getting a 10.
+It would be similar, as there is no state that can be visited multiple times in a single episode. The only difference would be that the estimate would be updated more frequently, as the state is visited more often.
 
 \subsection*{Exercise 5.3}
 What is the backup diagram for Monte Carlo estimation of $q_\pi$? 
