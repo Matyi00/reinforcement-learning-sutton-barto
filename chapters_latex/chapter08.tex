@@ -6,7 +6,7 @@ a one-step method; a method using multi-step bootstrapping would do better. Do y
 think one of the multi-step bootstrapping methods from Chapter 7 could do as well as
 the Dyna method? Explain why or why not.
 
-\subsection*{Solution}
+\subsubsection*{Solution:}
 While multi-step bootstrapping methods can improve over one-step methods and perform
 reasonably well, they are unlikely to match the performance of the Dyna method. The key
 difference lies in the use of a model: Dyna exploits the additional simulated experience
@@ -18,7 +18,7 @@ Why did the Dyna agent with exploration bonus, Dyna-Q+, perform
 better in the first phase as well as in the second phase of the blocking and shortcut
 experiments?
 
-\subsection*{Solution}
+\subsubsection*{Solution:}
 
 In Phase 1, the Dyna-Q+ agent performed better because its exploration bonus encouraged
 it to visit less-explored state-action pairs. The Dyna-Q agent did not have this,
@@ -29,7 +29,7 @@ Careful inspection of Figure 8.5 reveals that the difference between Dyna-Q+
 and Dyna-Q narrowed slightly over the first part of the experiment. What is the reason
 for this?
 
-\subsection*{Solution}
+\subsubsection*{Solution:}
 The exploration term in Dyna-Q+ is bigger than the exploration term in Dyna-Q, so it takes
 suboptimal actions more often, consequently bringing the slope of the cumulative reward down.
 
@@ -41,7 +41,7 @@ selected was always that for which $Q(S t, a) + \kappa \sqrt{\tau(S_t, a)}$ was 
 gridworld experiment that tests and illustrates the strengths and weaknesses of this
 alternate approach. 
 
-\subsection*{Solution}
+\subsubsection*{Solution:}
 See the notebook.
 
 \begin{figure}[H]
@@ -58,7 +58,7 @@ to handle stochastic environments? How might this modification perform poorly on
 changing environments such as considered in this section? How could the algorithm be
 modified to handle stochastic environments $\textit{and}$ changing environments? 
 
-\subsection*{Solution}
+\subsubsection*{Solution:}
 
 We could save all the \textit{next state} and \textit{reward} pairs, and then sample from them when updating the Q-values. This would perform poorly on changing environments because the agent would be updating its Q-values with outdated information.
 
@@ -70,7 +70,7 @@ equally likely to occur. Suppose instead that the distribution was highly skewed
 some of the b states were much more likely to occur than most. Would this strengthen or
 weaken the case for sample updates over expected updates? Support your answer. 
 
-\subsection*{Solution}
+\subsubsection*{Solution:}
 A skewed distribution strengthens the case for sample updates because they naturally focus on the most likely transitions, improving computational efficiency. However, if rare transitions are important, expected updates are better as they account for all possible outcomes. Thus, the preference depends on the importance of rare events in the problem.
 
 \subsection*{Exercise 8.7}
@@ -78,7 +78,7 @@ Some of the graphs in Figure 8.8 seem to be scalloped in their early portions,
 particularly the upper graph for $b = 1$ and the uniform distribution. Why do you think
 this is? What aspects of the data shown support your hypothesis? 
 
-\subsection*{Solution}
+\subsubsection*{Solution:}
 
 The scalloped pattern arises because, for $b=1$ and the uniform distribution, value estimates improve significantly when new states are encountered for the first time. This creates periodic jumps in learning, as updates depend entirely on the order of state visits. Over time, as all states are visited and value estimates stabilize, the pattern smooths out.
 
@@ -87,7 +87,7 @@ Replicate the experiment whose results are shown in the
 lower part of Figure 8.8, then try the same experiment but with b = 3. Discuss the
 meaning of your results.
 
-\subsection*{Solution}
+\subsubsection*{Solution:}
 See the notebook.
 
 \begin{figure}[H]

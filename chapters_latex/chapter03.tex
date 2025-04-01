@@ -209,7 +209,7 @@ Work backwards.
         G_3 &= 3 + 0.5 \cdot 2 = 4 \\
         G_2 &= 6 + 0.5 \cdot 4 = 8 \\
         G_1 &= 2 + 0.5 \cdot 8 = 6 \\
-        G_0 &= -1 + 0.5 \cdot 6 = 2 \\
+        G_0 &= -1 + 0.5 \cdot 6 = 2 
     \end{aligned}
 \end{equation}
 
@@ -404,7 +404,8 @@ Use the putter when on the green, use the driver in the other cases.
 \end{center}
 
 \subsection*{Exercise 3.21} 
-Draw or describe the contours of the optimal action-value function for putting, $q_*(s, \text{putter})$, for the golf example. 
+Draw or describe the contours of the optimal action-value function for putting,
+$q_*(s, \text{putter})$, for the golf example.
 
 \subsubsection*{Solution:}
 $q_*(s, \text{putter})$ is equal to $1 + v_*(s')$ where $s'$ is the new location of the ball. If the ball arrives at the green, the next action should be using a putter, else the agent should use a driver.

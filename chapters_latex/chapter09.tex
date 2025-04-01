@@ -4,7 +4,7 @@
 
 Show that tabular methods such as presented in Part I of this book are a special case of linear function approximation. What would the feature vectors be?
 
-\subsection*{Solution}
+\subsubsection*{Solution:}
 
 Tabular methods are a special case of linear function approximation where each state is represented by a one-hot feature vector $\mathbf{x}(s)$. For a state $s_i$ in a space of $n$ states, $\mathbf{x}(s_i)$ is an $n$-dimensional vector with a $1$ at the $i$-th position and $0$ elsewhere. The value function is then:
 
@@ -33,7 +33,7 @@ V_{t+1}(S_t) = V_t(S_t) + \alpha \left[ U_t - V_t(S_t) \right]
 
 Why does (9.17) define $(n + 1)^k$ distinct features for dimension $k$?
 
-\subsection*{Solution}
+\subsubsection*{Solution:}
 
 Each of the $k$ dimensions independently contributes $(n+1)$ choices for the degree of the polynomial, so the total unique combinations of features is $(n+1)^k$.
 
@@ -41,7 +41,7 @@ Each of the $k$ dimensions independently contributes $(n+1)$ choices for the deg
 
 What $n$ and $c_{i,j}$ produce the feature vectors $\mathbf{x}(s) = (1, s_1, s_2, s_1s_2, s_1^2, s_2^2, s_1s_2^2, s_1^2 s_2, s_1^2 s_2^2)^\top$?
 
-\subsection*{Solution}
+\subsubsection*{Solution:}
 
 There are 2 states, and the maximum degree of the features is 2, so both $n$ and $k$ are 2. The coefficients $c_{i,j}$ are:
 \[
@@ -65,7 +65,7 @@ an effect on the value function than is the other, that generalization should be
 across this dimension rather than along it. What kind of tilings could be used to take
 advantage of this prior knowledge?
 
-\subsection*{Solution}
+\subsubsection*{Solution:}
 
 We need to use a tiling that is similar to the Asymmetric generalization in Figure 9.7. The tiling should have more tiles along the dimension that is more likely to have an effect on the value function.
 
@@ -82,14 +82,14 @@ so you decide that you want learning to be gradual, taking about 10 presentation
 the same feature vector before learning nears its asymptote. What step-size parameter $\alpha$
 should you use? Why?
 
-\subsection*{Solution}
+\subsubsection*{Solution:}
 The feature vectors always have 98 1s, because each tiling only has exactly one tile activated, so $\mathbf{x}^\top \mathbf{x}$ is always 98. Thus $\alpha = \left(\tau \times \mathbb{E}[\mathbf{x}^\top \mathbf{x}]\right)^{-1} = \frac{1}{10 \times 98} = \frac{1}{980}$.
 
 \subsection*{Exercise 9.6}
 If $\tau = 1$ and $\mathbf{x}(S_t)^\top \mathbf{x}(S_t) = \mathbb{E}[\mathbf{x}^\top \mathbf{x}]$, prove that (9.19) together with (9.7)
 and linear function approximation results in the error being reduced to zero in one update.
 
-\subsection*{Solution}
+\subsubsection*{Solution:}
 Based on (9.19):
 \[
     \alpha = \left( \tau \times \mathbb{E}[\mathbf{x}^\top \mathbf{x}] \right)^{-1} = \left( 1 \times \mathbf{x}(S_t)^\top \mathbf{x}(S_t) \right)^{-1} = \frac{1}{\mathbf{x}(S_t)^\top \mathbf{x}(S_t)}
@@ -117,7 +117,7 @@ form is common in games that end with either a win or a loss, in which case the 
 a state can be interpreted as the probability of winning. Derive the learning algorithm
 for this case, from (9.7), such that no gradient notation appears.
 
-\subsection*{Solution}
+\subsubsection*{Solution:}
 
 
 The logistic function is defined as:
@@ -164,7 +164,7 @@ cross-entropy loss instead of the squared error in (9.4), all the way to an expl
 with no gradient or logarithm notation in it. Is your final form more complex, or simpler,
 than that you obtained in the preceding exercise?
 
-\subsection*{Solution}
+\subsubsection*{Solution:}
 
 The cross-entropy loss for a binary classification problem is defined as:
 \[ 
